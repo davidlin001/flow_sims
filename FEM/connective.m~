@@ -1,0 +1,10 @@
+function celem=connective(Nx,Ny)
+%Nx=Number of elements in x-direction
+%Ny=Number of elements in y-direction
+%elem4=4 noded elements with global nodes
+%elem8=8 noded elements with global nodes
+elem4=zeros(Nx*Ny,4);
+for i=1:Nx*Ny
+    r(i)=mod(i,Nx);
+    q(i)=(i-r(i))/(Nx);
+    if r(i)==
