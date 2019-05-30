@@ -9,8 +9,8 @@ format longG
 %% GRID SIZE AND OTHER PARAMETERS
 %i runs along x-direction and j runs along y-direction 
 
-imax=100;                        %grid size in x-direction 
-jmax=100;                        %grid size in y-direction 
+imax=10;                        %grid size in x-direction 
+jmax=10;                        %grid size in y-direction 
 %imax=33;                        %grid size in x-direction 
 %jmax=33;                        %grid size in y-direction 
 max_iteration=6000; 
@@ -22,7 +22,6 @@ rho = 1;                        %density
 velocity=1;                     %velocity = lid velocity
 dx=1/(imax-1);					%dx,dy cell sizes along x and y directions
 dy=1/(jmax-1); 
-re = 2*rho/mu;
 x=dx/2:dx:1-dx/2; 
 y=0:dy:1; 
 alphaP = 0.1;                   %pressure under-relaxation
@@ -94,8 +93,7 @@ figure
 
 
 %% Change graph to be contour of p, u/v arrows. 
-filename =  strcat('SIMPLE_data_',  string(re), '.txt');
-fid = fopen(filename,'wt');
+fid = fopen('Mymatrix.txt','wt');
 fprintf(fid, '%u', jmax);
 fprintf(fid,'\n');
 for ii = 2:size(u,1)
@@ -113,15 +111,20 @@ end
 fclose(fid)
 
 
-
 [X,Y] = meshgrid(x,y);
-contourf(x,y,p(2:imax,:)',50, 'edgecolor','none');colormap jet
-hold on 
-quiver(Y,X,u(2:imax+1,2:jmax), v(1:imax,2:jmax));
-hold off
-colorbar;
+disp(size(X))
+disp(size(Y))
+disp(size(u(2:imax,:)))
+disp(size(v(2:imax,2:jmax+1)))
+
+%%contourf(x,y,p(2:imax,:)',50, 'edgecolor','none');colormap jet
+%hold on 
+%quiver(X,Y,u(2:imax,:),v(2:imax,2:jmax+1));
+quiver(X,Y,u(1:imax,2:jmax),v(1:imax,2:jmax));
+%hold off
+qcolorbar;
 axis([0 1 0 1]); 
-title(strcat('Reynolds Number: ',  string(re))); 
-graphname =  strcat('SIMPLE_data_',  string(re), '.png');
+title('steady Ux'); 
+
 
 
