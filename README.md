@@ -23,6 +23,6 @@ Solution of the Two-dimensional Incompressible NavierStokes Equations Using MATL
 [3].  M.J. Sarfi, 2D Lid Driven Cavity Flow using SIMPLE algorithm, MathWorks, (2018).
 
 [4].  T. Sorensen and F. Hastrup-Nielson. A
-Lid-Driven Cavity Flow, Technical University of Denmark, https://github.com/franzhastrup/MATLAB-LidDriven-Cavity-Flow/, (2015).
+Lid-Driven Cavity Flow, Technical University of Denmark, https://github.com/franzhastrup/MATLAB-Lid-Driven-Cavity-Flow/, (2015).
 
 [5].  H. K. Versteeg and W. Malalasekera, An Introduction to Computational Fluid Dynamics: The Finite Volume Method, Longman Scientific and Technical, (1995).
