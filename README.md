@@ -6,11 +6,13 @@ Solution Methods:
 1. FDM - Finite Difference Method [1].
 3. FEM - Galerkin finite element method [2]. 
 2. FVM - SIMPLE algorithm with finite volume discretization [3,4,5]
+
+Figures:
 * Each folder contains solves for pressure and velocity fields along with corresponding graphing functions
+* performance_analysis.ipynb: Template code for velocity profile and runtime graphs.
 
-performance_analysis.ipynb: Template code for velocity profile and runtime graphs.
+References:
 
-References, 
 [1]. L.A. Barba, and G.F. Forsyth, CFD
 Python: the 12 steps to Navier-Stokes equations. Journal of Open Source Education, 1(9), 21,
 https://doi.org/10.21105/jose.00021 (2018).
