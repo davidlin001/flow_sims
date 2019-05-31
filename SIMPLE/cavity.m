@@ -9,15 +9,16 @@ format longG
 %% GRID SIZE AND OTHER PARAMETERS
 %i runs along x-direction and j runs along y-direction 
 
+%imax=100;                        %grid size in x-direction 
+%jmax=100;                        %grid size in y-direction 
+
 imax=100;                        %grid size in x-direction 
 jmax=100;                        %grid size in y-direction 
-%imax=33;                        %grid size in x-direction 
-%jmax=33;                        %grid size in y-direction 
-max_iteration=6000; 
+max_iteration=2500; %6000; 
 maxRes = 1000;
 iteration = 1;
 %% Only change mu, Re = 2*rho/mu 
-mu = 0.1;                      %viscosity
+mu = 0.004;                      %viscosity
 rho = 1;                        %density
 velocity=1;                     %velocity = lid velocity
 dx=1/(imax-1);					%dx,dy cell sizes along x and y directions
@@ -27,7 +28,14 @@ x=dx/2:dx:1-dx/2;
 y=0:dy:1; 
 alphaP = 0.1;                   %pressure under-relaxation
 alphaU = 0.7;                   %velocity under-relaxation
+
 tol = 1e-5;
+if (re > 200)
+    tol = 1e-3;
+end
+if (re > 500)
+    tol = 1e-2;
+end
 
 %   u_star, v_star are Intermediate velocities
 %   u and v = Final velocities
@@ -112,6 +120,20 @@ for ii = 1:size(p,1)
 end
 fclose(fid)
 
+disp(strcat('Reynolds Number: ',  string(re)))
+midvert = round(jmax/2);
+midhor = round(imax/2);
+u_along_center = sprintf('%f,' , u(midvert,:));
+v_along_center = sprintf('%f,' , v(:,midhor));
+
+u_along_center = u_along_center(1:end-1);
+v_along_center = v_along_center(1:end-1);
+
+disp('u-vel along vertical line through center')
+disp(u_along_center)
+
+disp('v-vel along horizontal line through center')
+disp(v_along_center)
 
 
 [X,Y] = meshgrid(x,y);

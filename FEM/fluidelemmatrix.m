@@ -21,7 +21,7 @@ wp=[5/9 8/9 5/9];
 [g1,g2]=meshgrid(xp,xp);
 gp=[g2(:) g1(:)];
 [w1,w2]=meshgrid(wp,wp);
-w=w2(:).*w1(:);
+w=w2(:).* w1(:);
 ngp=length(gp);
 for k=1:ngp
     ksi=gp(k,1);
@@ -111,5 +111,5 @@ for k=1:ngp
         end
     end
 end
-Aelem=[A1 A2 A3; A4 A5 A6; A7 A8 A9];
+Aelem=[A1 A2 A3;A4 A5 A6;A7 A8 A9];
    

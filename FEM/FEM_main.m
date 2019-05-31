@@ -4,11 +4,11 @@ clear all;
 close all;
 clc;
 %Nx=3;Ny=3;x0=0;xf=3;y0=0;yf=0.6;
-Nx=10;Ny=10;x0=0;xf=1;y0=0;yf=1;
+Nx=30;Ny=30;x0=0;xf=1;y0=0;yf=1;
 %Nx=5,Ny=5,x0=0,xf=1,y0=-1,yf=0;
 
 % MODIFY THIS TO TRY DIFF REYNOLDS NUMBERS
-Re=[50];
+Re=[100];
 %Re=[1 10 50 100 200 500 1000];
 for j=1:length(Re)
     tol=1e-6;
@@ -84,6 +84,9 @@ for j=1:length(Re)
     x=node(:,1);
     y=node(:,2);
     L = sqrt(u.^2+v.^2);
+    disp(size(x))
+    disp(size(y))
+    disp(size(u./L))
     quiver(x,y,u./L,v./L,0.4);
     axis([0 1.1 0 1.1]);
     xlabel('x');
@@ -106,6 +109,8 @@ for j=1:length(Re)
     % view(0,90);
     figure 
     %subplot(1,2,2)
+    
+    % Last parameter below sets the number of contours
     contourf(X,Y,Mp,20);
     title(['Re=', num2str(Re(j))])
     h=colorbar;
