@@ -8,7 +8,7 @@ Solution Methods:
 2. FVM - SIMPLE algorithm with finite volume discretization [3,4,5]
 
 Figures:
-* Each folder contains solves for pressure and velocity fields along with corresponding graphing functions
+* Each folder contains solvers for pressure and velocity fields along with corresponding graphing functions
 * performance_analysis.ipynb: Template code for velocity profile and runtime graphs.
 
 References:
